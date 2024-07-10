@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Coleman Sundome Tent",
+    "description": "The Coleman Sundome Tent is perfect for your next camping trip. With its WeatherTec system and patented welded floors, it keeps you dry and comfortable. Easy setup with continuous pole sleeves.",
+    "price": "89.99",
+    "category": "Tent",
+    "tags": ["Best Selling", "Featured"],
+    "images": [
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/15576/95360/40155523_Main_SD_23_Grey_Meteor_Lite_3P__73890_RSZ__03234.1691192533.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/15576/95353/40155523_ALT01_SD_23_Grey_Meteor_Lite_3P__52191_RSZ__17956.1691192533.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/15576/95358/40155523_ALT03_SD_23_Grey_Meteor_Lite_3P__06343_RSZ__42559.1691192533.jpg?c=1"
+    ],
+    "inventory": {
+      "quantity": 30,
+      "inStock": true
+    }
+  },
+  {
+    "name": "Teton Sports Celsius Sleeping Bag",
+    "description": "Stay warm in temperatures as low as 0°F with the Teton Sports Celsius Sleeping Bag. This sleeping bag offers great insulation, a soft lining, and a draft tube to keep the cold out.",
+    "price": "59.99",
+    "category": "Sleeping Bag",
+    "tags": ["Best Selling"],
+    "images": [
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/7095/34095/web-10601-highlands-sleeping-bag-huckleberry-blue-open__32504.1626823283.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/7095/33996/web-10601-highlands-sleeping-bag-huckleberry-blue-top__96274.1626823279.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/7095/34182/web-10601-highlands-sleeping-bag-huckleberry-blue-stake-loop__16008.1626823287.jpg?c=1"
+    ],
+    "inventory": {
+      "quantity": 100,
+      "inStock": true
+    }
+  },
+  {
+    "name": "Osprey Atmos AG 65 Backpack",
+    "description": "The Osprey Atmos AG 65 is a top-loading pack with Anti-Gravity suspension, ensuring comfort and ventilation. Ideal for multi-day backpacking trips, it features numerous compartments and an adjustable harness.",
+    "price": "250.00",
+    "category": "Backpack",
+    "tags": ["Featured"],
+    "images": [
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/15694/87123/680016_9493_W_PURSUIT_BACKPACK_30_L_Carbon_Foam_Green_01__rsz__55325.1679334383.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/15694/90608/680016_9492_W_PURSUIT_BACKPACK_30_L_Cherrywood_Ink_Blue_01__rsz__77237.1683666025.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/15694/87127/680016_9493_W_PURSUIT_BACKPACK_30_L_Carbon_Foam_Green_06__rsz__72577.1683666033.jpg?c=1"
+    ],
+    "inventory": {
+      "quantity": 25,
+      "inStock": true
+    }
+  },
+  {
+    "name": "MSR PocketRocket 2 Stove",
+    "description": "The MSR PocketRocket 2 Stove is compact and lightweight, ideal for backpacking. It boils water quickly and is compatible with most canister fuel. Perfect for minimalist campers.",
+    "price": "44.95",
+    "category": "Camping Stove",
+    "tags": ["Best Selling", "Featured"],
+    "images": [
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/5720/27199/1104878_primary__39871.1626823001.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/5720/27291/1104878_alt02__95395.1626823005.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/5720/27382/1104878_alt01__45423.1626823008.jpg?c=1"
+    ],
+    "inventory": {
+      "quantity": 60,
+      "inStock": true
+    }
+  },
+  {
+    "name": "Helinox Chair One",
+    "description": "The Helinox Chair One is a lightweight, compact, and comfortable chair perfect for camping and hiking. It is easy to assemble and packs down small for convenient carrying.",
+    "price": "99.95",
+    "category": "Portable Chair",
+    "tags": ["Best Selling"],
+    "images": [
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/12904/113765/web_sunset_chair_mint_multiblock_1_rsz__03788.1715813340.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/12904/113763/web_sunset_chair_blackout_edition_1_rsz__24258.1715208324.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/12904/59248/1_4694a2bd-baa5-4d8d-8b76-fd119b0636ea_800x_rsz__10158.1715208324.jpg?c=1"
+    ],
+    "inventory": {
+      "quantity": 40,
+      "inStock": true
+    }
+  },
+  {
+    "name": "Black Diamond Spot 350 Headlamp",
+    "description": "With a powerful 350 lumens, the Black Diamond Spot 350 Headlamp is perfect for nighttime adventures. It features multiple modes and a waterproof design.",
+    "price": "39.95",
+    "category": "Lanterns and Flashlights",
+    "tags": ["Featured"],
+    "images": [
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/1159/11189/p_bdbd620637_powl_wizheadlamp_web__71893.1656624314.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/1159/10763/p_bd620637_brry_wizheadlamp_web__80609.1656624314.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/1159/11189/p_bdbd620637_powl_wizheadlamp_web__71893.1656624314.jpg?c=1"
+    ],
+    "inventory": {
+      "quantity": 80,
+      "inStock": true
+    }
+  },
+  {
+    "name": "Stanley Adventure Camp Cook Set",
+    "description": "The Stanley Adventure Camp Cook Set includes a stainless steel pot and two insulated cups. Perfect for cooking and enjoying meals outdoors, it's durable and easy to clean.",
+    "price": "24.99",
+    "category": "Camping Cookware",
+    "tags": ["Best Selling"],
+    "images": [
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/10870/5024/msr_flex_4_explode_prtn_1__29565.1626821993.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/10870/5085/1-msr_flex4_system_packed__60845.1626821996.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/10870/5024/msr_flex_4_explode_prtn_1__29565.1626821993.jpg?c=1"
+    ],
+    "inventory": {
+      "quantity": 75,
+      "inStock": true
+    }
+  },
+  {
+    "name": "Adventure Medical Kits Ultralight Watertight .7",
+    "description": "Compact and waterproof, the Adventure Medical Kits Ultralight Watertight .7 is perfect for treating minor injuries in the outdoors. Includes a variety of medical supplies.",
+    "price": "29.95",
+    "category": "First Aid Kit",
+    "tags": ["Featured"],
+    "images": [
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/10027/2574/0120-0220_adventure_first_aid_2.0_rt_rsz__20325.1626821842.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/10027/5882/0120-0220_adventure_first_aid_2.0_contents_rsz__83617.1626822037.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/10027/3945/adventure2open__37808.1626821941.jpg?c=1"
+    ],
+    "inventory": {
+      "quantity": 90,
+      "inStock": true
+    }
+  },
+  {
+    "name": "Hydro Flask 32 oz Wide Mouth Bottle",
+    "description": "The Hydro Flask 32 oz Wide Mouth Bottle keeps beverages cold for up to 24 hours and hot for up to 12 hours. Durable and easy to carry, it's perfect for outdoor activities.",
+    "price": "44.95",
+    "category": "Water Bottle",
+    "tags": ["Best Selling", "Featured"],
+    "images": [
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/16100/98436/sb20001_black_straighton-1600x1600_RSZ__03215.1695771326.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/16100/98437/sb20464_indigo_straighton-1600x1600_RSZ__74577.1695771326.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/16100/98439/sb20441_dew_straighton-1600x1600_RSZ__83792.1695771326.jpg?c=1"
+    ],
+    "inventory": {
+      "quantity": 120,
+      "inStock": true
+    }
+  },
+  {
+    "name": "Merrell Moab 2 Vent Hiking Shoes",
+    "description": "The Merrell Moab 2 Vent Hiking Shoes offer comfort, durability, and breathability. With Vibram outsoles for excellent traction, they are ideal for any hiking adventure.",
+    "price": "100.00",
+    "category": "Hiking Boots",
+    "tags": ["Best Selling"],
+    "images": [
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/11985/48496/24x_24y_900309_nucleohighiigtx_carbonchili_1_rsz__14585.1641602252.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/11985/48497/24x_24y_900309_nucleohighiigtx_carbonchili_2_rsz__32196.1641602252.jpg?c=1",
+      "https://cdn11.bigcommerce.com/s-45mun2obzo/images/stencil/original/products/11985/48499/24x_24y_900309_nucleohighiigtx_carbonchili_4_rsz__59106.1641602252.jpg?c=1"
+    ],
+    "inventory": {
+      "quantity": 50,
+      "inStock": true
+    }
+  }
+]
