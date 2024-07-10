@@ -1,8 +1,9 @@
 import HeroSection from '@/pages/Home/HeroSection/HeroSection';
-import FAQ from '@/pages/Home/FAQ/FAQ';
 import BestSelling from '@/pages/Home/BestSelling/BestSelling';
 import Categories from '@/pages/Home/Categories/Categories';
 import FeaturedProducts from '@/pages/Home/FeaturedProducts/FeaturedProducts';
+import Adventure from '@/pages/Home/Adventure/Adventure';
+import FAQ from '@/pages/Home/FAQ/FAQ';
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <BestSelling />
       <Categories/>
       <FeaturedProducts/>
+      <Adventure/>
       <FAQ />
     </div>
   );
