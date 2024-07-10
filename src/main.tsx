@@ -9,7 +9,8 @@ import { router } from './Routes/Routes.tsx';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <div className="max-w-screen-2xl mx-auto">
+      {/* <div className="max-w-screen-2xl mx-auto"> */}
+      <div className="">
         <RouterProvider router={router} />
       </div>
     </Provider>
