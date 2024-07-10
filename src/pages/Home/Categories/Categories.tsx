@@ -27,8 +27,8 @@ const Categories = () => {
   console.log(categories);
 
   return (
-    <div>
-      <h3 className="text-2xl md:text-4xl font-semibold mt-12">Categories</h3>
+    <div className="pt-12">
+      <h2 className="text-3xl md:text-4xl font-semibold mb-4">Categories</h2>
       <div className="mt-4">
         <Carousel className="w-full">
           <CarouselContent>

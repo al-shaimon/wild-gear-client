@@ -18,7 +18,7 @@ const BestSelling = () => {
   return (
     <section className="">
       <div className="pt-12">
-        <h2 className="text-3xl md:text-5xl font-semibold mb-4">Best Selling</h2>
+        <h2 className="text-3xl md:text-4xl font-semibold mb-4">Best Selling</h2>
         <div className="flex flex-wrap -m-4">
           {bestSellingProducts?.map((product: any) => (
             <div key={product._id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
