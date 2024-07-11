@@ -60,25 +60,25 @@ const NavBar = () => {
           <nav className="hidden space-x-4 md:flex">
             <NavLink
               to="/"
-              className="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground"
+              className="rounded-md px-3 py-2  font-medium transition-colors hover:bg-muted hover:text-foreground"
             >
               Home
             </NavLink>
             <NavLink
               to="/products"
-              className="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground"
+              className="rounded-md px-3 py-2  font-medium transition-colors hover:bg-muted hover:text-foreground"
             >
               Products
             </NavLink>
             <NavLink
               to="/manage-products"
-              className="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground"
+              className="rounded-md px-3 py-2  font-medium transition-colors hover:bg-muted hover:text-foreground"
             >
               Manage Product
             </NavLink>
             <NavLink
               to="/about"
-              className="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground"
+              className="rounded-md px-3 py-2  font-medium transition-colors hover:bg-muted hover:text-foreground"
             >
               About Us
             </NavLink>

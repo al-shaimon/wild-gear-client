@@ -1,20 +1,45 @@
 import { useGetProductsQuery } from '@/redux/features/productsApi';
+import { CirclesWithBar } from 'react-loader-spinner';
+import { useSearchParams } from 'react-router-dom';
 
 const Products = () => {
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get('category');
   const { data, isLoading } = useGetProductsQuery(undefined);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <CirclesWithBar
+          height="100"
+          width="100"
+          color="#000"
+          outerCircleColor="#000"
+          innerCircleColor="#000"
+          barColor="#000"
+          ariaLabel="circles-with-bar-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    );
   }
 
-  console.log(data.data);
+  const filteredProducts = category
+    ? data.data.filter((product: any) => product.category === category)
+    : data.data;
+
+  const headingTitle = category ? `Category: ${category}` : 'All Products';
+
+  console.log(filteredProducts);
 
   return (
     <section className="mx-4">
       <div className="pt-12">
-        <h2 className="text-3xl md:text-4xl font-semibold mb-4">All Product</h2>
+        <h2 className="text-3xl md:text-4xl font-semibold mb-4">{headingTitle}</h2>
         <div className="flex flex-wrap -m-4">
-          {data?.data?.map((product: any) => (
+          {filteredProducts?.map((product: any) => (
             <div key={product._id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
               <a className="block relative rounded overflow-hidden">
                 <img

@@ -1,17 +1,32 @@
 import { Button } from '@/components/ui/button';
 import { useGetProductsQuery } from '@/redux/features/productsApi';
+import { CirclesWithBar } from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
 
 const FeaturedProducts = () => {
   const { data, isLoading } = useGetProductsQuery(undefined);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <CirclesWithBar
+          height="100"
+          width="100"
+          color="#000"
+          outerCircleColor="#000"
+          innerCircleColor="#000"
+          barColor="#000"
+          ariaLabel="circles-with-bar-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    );
   }
-
   console.log(data.data);
 
-  const featuredProducts = data.data.filter((product: any) => product.tags.includes('Featured'));
+  const featuredProducts = data?.data?.filter((product: any) => product.tags.includes('Featured'));
 
   return (
     <section className="">

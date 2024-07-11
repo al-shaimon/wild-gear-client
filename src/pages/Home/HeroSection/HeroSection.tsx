@@ -19,7 +19,7 @@ const HeroSection = () => {
             className="w-full"
             plugins={[
               Autoplay({
-                delay: 4000,
+                delay: 400000,
               }),
             ]}
           >
@@ -27,20 +27,18 @@ const HeroSection = () => {
               <CarouselItem>
                 <div className="relative overflow-hidden rounded-lg group">
                   <img
-                    src="https://www.jack-wolfskin.com/dw/image/v2/AAQL_PRD/on/demandware.static/-/Library-Sites-JackWolfskin_SharedContentLib/default/dw3b034f81/categoryMoodImages/general/small/Ausruestung-Zelte-AND-Equipment-Zelte.jpg?sw=900&sh=675&sm=fit&sfrm=jpg"
+                    src="/sale.jpg"
                     alt="Product 1"
-                    className="object-cover w-full h-[400px] md:h-[500px] lg:h-[650px]"
+                    className="object-cover w-full h-[400px] md:h-[500px] lg:h-[80vh]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-white">
-                    <h3 className="text-2xl font-bold md:text-3xl lg:text-4xl">
-                      Wireless Headphones
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white ">
+                    <h3 className="text-2xl font-bold md:text-3xl lg:text-4xl uppercase">
+                      Summer Sale
                     </h3>
-                    <p className="mt-2 text-sm md:text-base lg:text-lg">
-                      Experience high-quality sound with our latest wireless headphones.
-                    </p>
+                    <p className="mt-2 text-sm md:text-base lg:text-lg">Save upto 35%</p>
                     <div className="mt-4">
-                      <Link to="/about">
+                      <Link to="/products">
                         <Button className="bg-white text-black hover:bg-black hover:text-white uppercase">
                           Shop Now
                         </Button>
@@ -52,20 +50,18 @@ const HeroSection = () => {
               <CarouselItem>
                 <div className="relative overflow-hidden rounded-lg group">
                   <img
-                    src="https://www.jack-wolfskin.com/dw/image/v2/AAQL_PRD/on/demandware.static/-/Library-Sites-JackWolfskin_SharedContentLib/default/dw3b034f81/categoryMoodImages/general/small/Ausruestung-Zelte-AND-Equipment-Zelte.jpg?sw=900&sh=675&sm=fit&sfrm=jpg"
-                    alt="Product 1"
-                    className="object-cover w-full h-[400px] md:h-[500px] lg:h-[650px]"
+                    src="/1.jpg"
+                    alt="Product 2"
+                    className="object-cover w-full h-[400px] md:h-[500px] lg:h-[80vh]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-white">
-                    <h3 className="text-2xl font-bold md:text-3xl lg:text-4xl">
-                      Wireless Headphones
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white ">
+                    <h3 className="text-2xl font-bold md:text-3xl lg:text-4xl uppercase">
+                      Big Agnes
                     </h3>
-                    <p className="mt-2 text-sm md:text-base lg:text-lg">
-                      Experience high-quality sound with our latest wireless headphones.
-                    </p>
+                    <p className="mt-2 text-sm md:text-base lg:text-lg">Save upto 35%</p>
                     <div className="mt-4">
-                      <Link to="/about">
+                      <Link to="/products?category=Tent">
                         <Button className="bg-white text-black hover:bg-black hover:text-white uppercase">
                           Shop Now
                         </Button>
@@ -77,20 +73,18 @@ const HeroSection = () => {
               <CarouselItem>
                 <div className="relative overflow-hidden rounded-lg group">
                   <img
-                    src="https://www.jack-wolfskin.com/dw/image/v2/AAQL_PRD/on/demandware.static/-/Library-Sites-JackWolfskin_SharedContentLib/default/dw3b034f81/categoryMoodImages/general/small/Ausruestung-Zelte-AND-Equipment-Zelte.jpg?sw=900&sh=675&sm=fit&sfrm=jpg"
+                    src="/3.jpg"
                     alt="Product 1"
-                    className="object-cover w-full h-[400px] md:h-[500px] lg:h-[650px]"
+                    className="object-cover w-full h-[400px] md:h-[500px] lg:h-[80vh]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-white">
-                    <h3 className="text-2xl font-bold md:text-3xl lg:text-4xl">
-                      Wireless Headphones
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white ">
+                    <h3 className="text-2xl font-bold md:text-3xl lg:text-4xl uppercase">
+                      Clearance Sale
                     </h3>
-                    <p className="mt-2 text-sm md:text-base lg:text-lg">
-                      Experience high-quality sound with our latest wireless headphones.
-                    </p>
+                    <p className="mt-2 text-sm md:text-base lg:text-lg">Save upto 35%</p>
                     <div className="mt-4">
-                      <Link to="/about">
+                      <Link to="/products">
                         <Button className="bg-white text-black hover:bg-black hover:text-white uppercase">
                           Shop Now
                         </Button>

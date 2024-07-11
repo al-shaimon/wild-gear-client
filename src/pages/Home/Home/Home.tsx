@@ -9,10 +9,13 @@ const Home = () => {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <HeroSection />
-      <BestSelling />
-      <Categories/>
-      <FeaturedProducts/>
-      <Adventure/>
+      <div className="pt-12">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-4">Best Selling</h2>
+        <BestSelling />
+      </div>
+      <Categories />
+      <FeaturedProducts />
+      <Adventure />
       <FAQ />
     </div>
   );
