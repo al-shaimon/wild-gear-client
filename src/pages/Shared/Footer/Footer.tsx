@@ -3,16 +3,16 @@ import { NavLink } from 'react-router-dom';
 const Footer = () => {
   return (
     <div className="">
-      <footer className="text-gray-600 body-font">
+      <footer className="body-font">
         <div className="flex items-center sm:flex-row flex-col">
           <NavLink to="/">
             <img className="w-56" src="/logo.png" alt="logo" />
           </NavLink>
-          <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+          <p className="text-sm  sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
             © {new Date().getFullYear()} WildGears —
             <a
               href="http://github.com/al-shaimon"
-              className="text-gray-600 ml-1"
+              className="ml-1"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -21,7 +21,7 @@ const Footer = () => {
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
             <a
-              className="text-gray-500"
+              className=""
               href="https://www.facebook.com/al.shaimon"
               rel="noopener noreferrer"
               target="_blank"
@@ -38,7 +38,7 @@ const Footer = () => {
               </svg>
             </a>
             <a
-              className="ml-3 text-gray-500"
+              className="ml-3"
               href="https://twitter.com/al_shaimon"
               rel="noopener noreferrer"
               target="_blank"
@@ -55,7 +55,7 @@ const Footer = () => {
               </svg>
             </a>
             <a
-              className="ml-3 text-gray-500"
+              className="ml-3"
               href="https://www.instagram.com/alshaimon"
               rel="noopener noreferrer"
               target="_blank"
@@ -74,7 +74,7 @@ const Footer = () => {
               </svg>
             </a>
             <a
-              className="ml-3 text-gray-500"
+              className="ml-3"
               href="https://www.linkedin.com/in/al-shaimon/"
               rel="noopener noreferrer"
               target="_blank"
