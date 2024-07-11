@@ -3,9 +3,49 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { PopoverClose } from '@radix-ui/react-popover';
 import { MenuIcon, MinusIcon, PlusIcon, ShoppingCartIcon, XIcon } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { updateQuantity, removeFromCart } from '@/redux/features/cartSlice';
+import { toast } from 'sonner';
+import Swal from 'sweetalert2';
 
 const NavBar = () => {
+  const cart = useAppSelector((state) => state.cart.items);
+  const dispatch = useAppDispatch();
+
+  console.log('cart', cart);
+
+  const handleIncreaseQuantity = (item: any) => {
+    if (item.quantity < item.inventory.quantity) {
+      dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }));
+    } else {
+      toast.error('Maximum stock limit reached');
+    }
+  };
+
+  const handleDecreaseQuantity = (item: any) => {
+    if (item.quantity > 1) {
+      dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
+    } else {
+      Swal.fire({
+        title: 'Remove Item',
+        text: 'Are you sure you want to remove this item from the cart?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, remove it!',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(removeFromCart(item.id));
+          Swal.fire('Removed!', 'Your item has been removed from the cart.', 'success');
+        }
+      });
+    }
+  };
+
+  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
   return (
     <>
       <header className="sticky top-0 z-50 w-full bg-background shadow-sm">
@@ -91,121 +131,95 @@ const NavBar = () => {
                   <span className="sr-only">Cart</span>
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-80 bg-background shadow-lg">
-                <div className="flex flex-col gap-4 p-4">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-medium">Cart</h3>
-                    <div>
+              {cart.length === 0 ? (
+                <PopoverContent className="w-80 bg-background shadow-lg">
+                  <div className="flex flex-col gap-4 p-4">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg font-medium">Cart</h3>
+                      <div>
+                        <PopoverClose asChild>
+                          <Button variant="ghost" size="icon">
+                            <XIcon className="h-5 w-5" />
+                            <span className="sr-only">Close</span>
+                          </Button>
+                        </PopoverClose>
+                      </div>
+                    </div>
+                    <div className="flex justify-center items-center h-24">
+                      <h4 className="text-center">Cart is empty!</h4>
+                    </div>
+                  </div>
+                </PopoverContent>
+              ) : (
+                <PopoverContent className="w-80 bg-background shadow-lg">
+                  <div className="flex flex-col gap-4 p-4">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg font-medium">Cart</h3>
+                      <div>
+                        <PopoverClose asChild>
+                          <Button variant="ghost" size="icon">
+                            <XIcon className="h-5 w-5" />
+                            <span className="sr-only">Close</span>
+                          </Button>
+                        </PopoverClose>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      {cart?.map((item) => (
+                        <div key={item.id} className="flex items-center gap-4">
+                          <img
+                            src={item.images[0] || '/placeholder.svg'}
+                            width={64}
+                            height={64}
+                            alt={item.name}
+                            className="rounded-md"
+                          />
+                          <div className="flex-1">
+                            <h4 className="text-sm font-medium">{item.name}</h4>
+                            <p className="text-sm text-muted-foreground">${item.price}</p>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              onClick={() => handleDecreaseQuantity(item)}
+                            >
+                              <MinusIcon className="h-5 w-5" />
+                              <span className="sr-only">Decrease quantity</span>
+                            </Button>
+                            <span>{item.quantity}</span>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              onClick={() => handleIncreaseQuantity(item)}
+                            >
+                              <PlusIcon className="h-5 w-5" />
+                              <span className="sr-only">Increase quantity</span>
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium">Subtotal</span>
+                        <span className="text-sm font-medium">${totalPrice.toFixed(2)}</span>
+                      </div>
                       <PopoverClose asChild>
-                        <Button variant="ghost" size="icon">
-                          <XIcon className="h-5 w-5" />
-                          <span className="sr-only">Close</span>
-                        </Button>
+                        <Link to="/checkout">
+                          <Button className="w-full bg-black text-white hover:bg-white hover:text-black hover:border uppercase">
+                            Checkout
+                          </Button>
+                        </Link>
                       </PopoverClose>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-4">
-                      <img
-                        src="/placeholder.svg"
-                        width={64}
-                        height={64}
-                        alt="Product"
-                        className="rounded-md"
-                      />
-                      <div className="flex-1">
-                        <h4 className="text-sm font-medium">Product Name</h4>
-                        <p className="text-sm text-muted-foreground">$19.99</p>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Button variant="ghost" size="icon">
-                          <MinusIcon className="h-5 w-5" />
-                          <span className="sr-only">Decrease quantity</span>
-                        </Button>
-                        <span>1</span>
-                        <Button variant="ghost" size="icon">
-                          <PlusIcon className="h-5 w-5" />
-                          <span className="sr-only">Increase quantity</span>
-                        </Button>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <img
-                        src="/placeholder.svg"
-                        width={64}
-                        height={64}
-                        alt="Product"
-                        className="rounded-md"
-                      />
-                      <div className="flex-1">
-                        <h4 className="text-sm font-medium">Another Product</h4>
-                        <p className="text-sm text-muted-foreground">$29.99</p>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Button variant="ghost" size="icon">
-                          <MinusIcon className="h-5 w-5" />
-                          <span className="sr-only">Decrease quantity</span>
-                        </Button>
-                        <span>2</span>
-                        <Button variant="ghost" size="icon">
-                          <PlusIcon className="h-5 w-5" />
-                          <span className="sr-only">Increase quantity</span>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Subtotal</span>
-                      <span className="text-sm font-medium">$79.97</span>
-                    </div>
-                    <Button className="w-full">Checkout</Button>
-                  </div>
-                </div>
-              </PopoverContent>
+                </PopoverContent>
+              )}
             </Popover>
           </div>
         </div>
       </header>
-
-      {/* <header className="text-gray-600 body-font my-6">
-        <div className="flex flex-wrap flex-col md:flex-row items-center">
-          <NavNavLink to="/">
-            <img className="w-56" src="/logo.png" alt="logo" />
-          </NavNavLink>
-          <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <NavNavLink to="/" className="mr-5 hover:text-gray-900">
-              Home
-            </NavNavLink>
-            <NavNavLink to="/products" className="mr-5 hover:text-gray-900">
-              Products
-            </NavNavLink>
-            <NavNavLink to="/manage-products" className="mr-5 hover:text-gray-900">
-              Manage Products
-            </NavNavLink>
-            <NavNavLink to="/about" className="mr-5 hover:text-gray-900">
-              About Us
-            </NavNavLink>
-            <NavNavLink to="/cart" className="mr-5 hover:text-gray-900">
-              Cart
-            </NavNavLink>
-          </nav>
-          <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-            Cart
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              className="w-4 h-4 ml-1"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </header> */}
     </>
   );
 };

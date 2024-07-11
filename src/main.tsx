@@ -5,14 +5,14 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store.ts';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './Routes/Routes.tsx';
+import { Toaster } from 'sonner';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       {/* <div className="max-w-screen-2xl mx-auto"> */}
-      <div className="">
-        <RouterProvider router={router} />
-      </div>
+      <RouterProvider router={router} />
+      <Toaster />
     </Provider>
   </React.StrictMode>
 );
