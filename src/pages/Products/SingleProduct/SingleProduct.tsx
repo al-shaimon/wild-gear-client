@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetProductByIdQuery } from '@/redux/features/productsApi';
 import { CirclesWithBar } from 'react-loader-spinner';
@@ -7,6 +7,8 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { addToCart, clearError } from '@/redux/features/cartSlice';
 import StarRating from '@/utils/StarRating';
 import { toast } from 'sonner';
+import ReactImageMagnify from 'react-image-magnify';
+
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -16,10 +18,13 @@ const ProductDetails = () => {
   const error = useAppSelector((state) => state.cart.error);
 
   const product = data?.data;
-  const inCart = cart.find((item: any) => item.id === product?.id);
+  const inCart = cart.find((item: any) => item.id === product?._id);
   const quantityInCart = inCart ? inCart.quantity : 0;
   const canAddToCart =
     product?.inventory.inStock && product.inventory.quantity - quantityInCart > 0;
+
+  const [selectedImage, setSelectedImage] = useState<string | undefined>(product?.images[0]);
+
 
   useEffect(() => {
     if (error) {
@@ -31,6 +36,12 @@ const ProductDetails = () => {
   useEffect(() => {
     if (product && product.inventory.quantity === 0) {
       toast.error('Item is out of stock');
+    }
+  }, [product]);
+
+  useEffect(() => {
+    if (product && product.images.length > 0) {
+      setSelectedImage(product.images[0]);
     }
   }, [product]);
 
@@ -66,13 +77,43 @@ const ProductDetails = () => {
 
   return (
     <section className="body-font overflow-hidden min-h-dvh">
-      <div className="px-5 py-12 ">
+      <div className="px-5 py-12">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
-          <img
-            alt={product.name}
-            className="lg:w-1/2 w-full lg:h-auto object-cover object-center rounded"
-            src={product.images[0]}
-          />
+          <div className="lg:w-1/2 w-full">
+            {selectedImage && (
+              <ReactImageMagnify
+                {...{
+                  smallImage: {
+                    alt: product.name,
+                    isFluidWidth: true,
+                    src: selectedImage,
+                  },
+                  largeImage: {
+                    src: selectedImage,
+                    width: 600,
+                    height: 1200,
+                  },
+                  enlargedImagePosition: 'over',
+                  isHintEnabled: true,
+                  shouldUsePositiveSpaceLens: true,
+                }}
+              />
+            )}
+
+            <div className="flex mt-4 space-x-2">
+              {product.images.map((image: string, index: number) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`${product.name}-${index}`}
+                  className={`w-20 h-20 object-cover cursor-pointer rounded ${
+                    selectedImage === image ? 'border-2 border-blue-500' : 'border'
+                  }`}
+                  onClick={() => setSelectedImage(image)}
+                />
+              ))}
+            </div>
+          </div>
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">{product.category}</h2>
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.name}</h1>

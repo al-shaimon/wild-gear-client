@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { updateQuantity, removeFromCart } from '@/redux/features/cartSlice';
 import { toast } from 'sonner';
 import Swal from 'sweetalert2';
+import { Badge } from '@/components/ui/badge';
 
 const NavBar = () => {
   const cart = useAppSelector((state) => state.cart.items);
@@ -129,6 +130,13 @@ const NavBar = () => {
                 <Button variant="ghost" size="icon" className="rounded-full">
                   <ShoppingCartIcon className="h-6 w-6" />
                   <span className="sr-only">Cart</span>
+                  {cart.length > 0 ? (
+                    <Badge className="absolute top-4 right-0 h-4 w-4 rounded-full bg-primary text-xs text-center">
+                      {cart.length}
+                    </Badge>
+                  ) : (
+                    <></>
+                  )}
                 </Button>
               </PopoverTrigger>
               {cart.length === 0 ? (
