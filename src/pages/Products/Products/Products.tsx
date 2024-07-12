@@ -1,6 +1,6 @@
-import { useGetProductsQuery } from '@/redux/features/productsApi';
 import { CirclesWithBar } from 'react-loader-spinner';
 import { Link, useSearchParams } from 'react-router-dom';
+import { useGetProductsQuery } from '@/redux/features/productsApi';
 
 const Products = () => {
   const [searchParams] = useSearchParams();
@@ -31,8 +31,6 @@ const Products = () => {
     : data.data;
 
   const headingTitle = category ? `Category: ${category}` : 'All Products';
-
-  console.log(filteredProducts);
 
   return (
     <section className="mx-4">

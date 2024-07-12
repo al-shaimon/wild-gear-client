@@ -9,22 +9,30 @@ import StarRating from '@/utils/StarRating';
 import { toast } from 'sonner';
 import ReactImageMagnify from 'react-image-magnify';
 
-
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
-  const { data, isLoading } = useGetProductByIdQuery(id);
+  const { data, isLoading, refetch } = useGetProductByIdQuery(id);
+
+  // Refetch product every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      refetch();
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [refetch]);
+
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cart.items);
   const error = useAppSelector((state) => state.cart.error);
 
   const product = data?.data;
-  const inCart = cart.find((item: any) => item.id === product?._id);
+  const inCart = cart.find((item: any) => item._id === product?._id);
   const quantityInCart = inCart ? inCart.quantity : 0;
   const canAddToCart =
     product?.inventory.inStock && product.inventory.quantity - quantityInCart > 0;
 
   const [selectedImage, setSelectedImage] = useState<string | undefined>(product?.images[0]);
-
 
   useEffect(() => {
     if (error) {

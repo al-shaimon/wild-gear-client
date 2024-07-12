@@ -18,7 +18,7 @@ const NavBar = () => {
 
   const handleIncreaseQuantity = (item: any) => {
     if (item.quantity < item.inventory.quantity) {
-      dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }));
+      dispatch(updateQuantity({ id: item._id, quantity: item.quantity + 1 }));
     } else {
       toast.error('Maximum stock limit reached');
     }
@@ -26,7 +26,7 @@ const NavBar = () => {
 
   const handleDecreaseQuantity = (item: any) => {
     if (item.quantity > 1) {
-      dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
+      dispatch(updateQuantity({ id: item._id, quantity: item.quantity - 1 }));
     } else {
       Swal.fire({
         title: 'Remove Item',
@@ -38,7 +38,7 @@ const NavBar = () => {
         confirmButtonText: 'Yes, remove it!',
       }).then((result) => {
         if (result.isConfirmed) {
-          dispatch(removeFromCart(item.id));
+          dispatch(removeFromCart(item._id));
           Swal.fire('Removed!', 'Your item has been removed from the cart.', 'success');
         }
       });
@@ -174,7 +174,7 @@ const NavBar = () => {
                     </div>
                     <div className="flex flex-col gap-4">
                       {cart?.map((item) => (
-                        <div key={item.id} className="flex items-center gap-4">
+                        <div key={item._id} className="flex items-center gap-4">
                           <img
                             src={item.images[0] || '/placeholder.svg'}
                             width={64}

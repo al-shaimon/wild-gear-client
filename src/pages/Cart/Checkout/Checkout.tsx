@@ -1,6 +1,9 @@
-import { useAppSelector } from '@/redux/hooks';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { useForm } from 'react-hook-form';
-import { Button } from '@/components/ui/button'; // Ensure you have a Button component or use a standard button element
+import { Button } from '@/components/ui/button';
+import { clearCart } from '@/redux/features/cartSlice';
+import { useState } from 'react';
+import { useUpdateProductMutation, useGetProductsQuery } from '@/redux/features/productsApi';
 
 interface CheckoutForm {
   name: string;
@@ -11,14 +14,59 @@ interface CheckoutForm {
 
 const Checkout = () => {
   const cart = useAppSelector((state) => state.cart.items);
+  const dispatch = useAppDispatch();
+  const [paymentMethod, setPaymentMethod] = useState<string>('cashOnDelivery');
+  const [orderPlaced, setOrderPlaced] = useState<boolean>(false);
+  const [updateProduct] = useUpdateProductMutation();
+  const { refetch: refetchProducts } = useGetProductsQuery(undefined, { skip: true }); // Skip initial fetch
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<CheckoutForm>();
-  const onSubmit = (data: CheckoutForm) => console.log(data);
 
-  // Calculate total price of items in the cart
+  const onSubmit = async (data: CheckoutForm) => {
+    if (paymentMethod === 'cashOnDelivery') {
+      // Handle Cash on Delivery
+      console.log('Order placed with Cash on Delivery:', data);
+
+      // Update product quantities
+      for (const item of cart) {
+        await updateProduct({
+          id: item._id,
+          inventory: {
+            quantity: item.inventory.quantity - item.quantity,
+            inStock: item.inventory.quantity - item.quantity > 0,
+          },
+        });
+      }
+
+      // Refetch products data after updating quantities
+      try {
+        await refetchProducts();
+      } catch (error) {
+        console.error('Error refetching products:', error);
+      }
+
+      // Clear the cart
+      dispatch(clearCart());
+      // Redirect to success page
+      setOrderPlaced(true);
+    }
+  };
+
+  const renderOrderSuccess = () => (
+    <div className="p-4 max-w-4xl mx-auto min-h-screen md:mt-10">
+      <h2 className="text-2xl font-semibold mb-4">Order Placed Successfully!</h2>
+      <p>Your order has been placed successfully.</p>
+    </div>
+  );
+
+  if (orderPlaced) {
+    return renderOrderSuccess();
+  }
+
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
@@ -26,7 +74,7 @@ const Checkout = () => {
       <h2 className="text-2xl font-semibold mb-4">Checkout</h2>
       <div className="mb-6">
         {cart.map((item) => (
-          <div key={item.id} className="flex justify-between items-center p-2 border-b">
+          <div key={item._id} className="flex justify-between items-center p-2 border-b">
             <div>
               <h3 className="text-lg font-medium">{item.name}</h3>
               <p className="text-sm text-gray-600">Price: ${item.price}</p>
@@ -102,12 +150,29 @@ const Checkout = () => {
           {errors.address && <span className="text-red-500 text-sm">Address is required</span>}
         </div>
 
+        <div>
+          <label className="block text-sm font-medium">Payment Method</label>
+          <div className="mt-1">
+            <label className="inline-flex items-center">
+              <input
+                type="radio"
+                name="paymentMethod"
+                value="cashOnDelivery"
+                checked={paymentMethod === 'cashOnDelivery'}
+                onChange={() => setPaymentMethod('cashOnDelivery')}
+                className="form-radio"
+              />
+              <span className="ml-2">Cash on Delivery</span>
+            </label>
+          </div>
+        </div>
+
         <div className="flex md:justify-end">
           <Button
             type="submit"
             className="bg-black text-white hover:bg-white hover:text-black hover:border uppercase"
           >
-            Submit
+            Place Order
           </Button>
         </div>
       </form>
