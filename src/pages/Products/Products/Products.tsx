@@ -29,12 +29,22 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { ListOrderedIcon } from 'lucide-react';
+import StarRating from '@/utils/StarRating';
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const category = searchParams.get('category') || 'all';
   const [searchTerm, setSearchTerm] = useState('');
   const { data, isLoading, refetch } = useGetProductsQuery({ searchTerm });
+
+  // Refetch product every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      refetch();
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [refetch]);
 
   const dispatch = useAppDispatch();
   const { priceRange, sortBy, sortOrder } = useAppSelector((state) => state.products);
@@ -171,20 +181,27 @@ const Products = () => {
                 to={`/products/${product._id}`}
                 className="lg:w-1/4 md:w-1/2 p-4 w-full"
               >
-                <div>
-                  <a className="block relative rounded overflow-hidden">
-                    <img
-                      alt={product.name}
-                      className="object-cover object-center w-full h-full block"
-                      src={product.images[0]}
-                    />
-                  </a>
-                  <div className="mt-4">
+                <div className="relative block min-h-[500px] rounded overflow-hidden shadow-lg transition-transform transform hover:scale-105">
+                  <img
+                    alt={product.name}
+                    className="object-cover object-center w-full h-full"
+                    src={product.images[0]}
+                  />
+                  <div className="mt-4 p-4">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
                       {product.category}
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">{product.name}</h2>
-                    <p className="mt-1">${product.price}</p>
+                    <div className="flex gap-10 items-center mt-3">
+                      <span className="text-md font-semibold">Price: ${product.price}</span>
+                      <span>
+                        {product.rating ? (
+                          <StarRating rating={product.rating} />
+                        ) : (
+                          <> Not rated yet</>
+                        )}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </Link>

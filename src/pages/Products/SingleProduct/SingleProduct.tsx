@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useGetProductByIdQuery } from '@/redux/features/productsApi';
 import { CirclesWithBar } from 'react-loader-spinner';
 import { Button } from '@/components/ui/button';
@@ -71,7 +71,19 @@ const ProductDetails = () => {
   }
 
   if (!product) {
-    return <div>Product not found</div>;
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
+        <h1 className="text-3xl font-semibold mb-4">Product Not Found</h1>
+        <p className="text-gray-600 mb-6">
+          Sorry, the product you are looking for does not exist or has been removed.
+        </p>
+        <Link to="/products">
+          <Button className="bg-black text-white hover:bg-white hover:text-black hover:border uppercase">
+            Back to Products
+          </Button>
+        </Link>
+      </div>
+    );
   }
 
   const handleAddToCart = () => {
@@ -132,7 +144,8 @@ const ProductDetails = () => {
                 {product.inventory.inStock ? '(In Stock)' : '(Out of Stock)'}
               </span>
               <span className="flex gap-2 text-sm text-gray-500">
-                Ratings: <StarRating rating={4.5} />
+                Ratings:{' '}
+                {product.rating ? <StarRating rating={product.rating} /> : <> Not rated yet</>}
               </span>
             </div>
             <div className="flex">

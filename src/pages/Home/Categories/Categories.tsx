@@ -62,7 +62,7 @@ const Categories = () => {
             {categories.map((category: any, index: any) => (
               <CarouselItem key={index} className="md:basis-1/5">
                 <Link to={`/products?category=${category}`} key={index}>
-                  <Card className="h-40 flex justify-center items-center relative overflow-hidden">
+                  <Card className="h-40 flex justify-center items-center relative overflow-hidden transition-transform transform hover:scale-110">
                     <img
                       src={categoryImages[category]}
                       alt={category}

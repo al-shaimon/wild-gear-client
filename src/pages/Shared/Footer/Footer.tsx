@@ -2,13 +2,13 @@ import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className="">
-      <footer className="body-font">
-        <div className="flex items-center sm:flex-row flex-col">
+    <div className="mt-20">
+      <footer className="min-h-20">
+        <div className="flex items-center gap-2 md:gap-5 sm:flex-row flex-col">
           <NavLink to="/">
             <img className="w-56" src="/logo.png" alt="logo" />
           </NavLink>
-          <p className="text-sm  sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+          <p className="text-sm sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
             © {new Date().getFullYear()} WildGears —
             <a
               href="http://github.com/al-shaimon"
@@ -18,6 +18,13 @@ const Footer = () => {
             >
               @Al Shaimon
             </a>
+          </p>
+
+          <p className="text-sm">
+            <span className="font-medium">Phone Number: </span>+8801690174668
+          </p>
+          <p className="text-sm">
+            <span className="font-medium">Email: </span> alshaimon152@gmail.com
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
             <a

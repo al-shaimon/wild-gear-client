@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { useGetProductsQuery } from '@/redux/features/productsApi';
+import StarRating from '@/utils/StarRating';
 import { CirclesWithBar } from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
 
@@ -39,27 +40,34 @@ const FeaturedProducts = () => {
               to={`/products/${product._id}`}
               className="lg:w-1/4 md:w-1/2 p-4 w-full"
             >
-              <div>
-                <a className="block relative rounded overflow-hidden">
-                  <img
-                    alt={product.name}
-                    className="object-cover object-center w-full h-full block"
-                    src={product.images[0]}
-                  />
-                </a>
-                <div className="mt-4">
+              <div className="relative block min-h-[500px] rounded overflow-hidden shadow-lg transition-transform transform hover:scale-105">
+                <img
+                  alt={product.name}
+                  className="object-cover object-center w-full h-full"
+                  src={product.images[0]}
+                />
+                <div className="mt-4 p-4">
                   <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
                     {product.category}
                   </h3>
                   <h2 className="text-gray-900 title-font text-lg font-medium">{product.name}</h2>
-                  <p className="mt-1">${product.price}</p>
+                  <div className="flex gap-10 items-center mt-3">
+                    <span className="text-md font-semibold">Price: ${product.price}</span>
+                    <span>
+                      {product.rating ? (
+                        <StarRating rating={product.rating} />
+                      ) : (
+                        <> Not rated yet</>
+                      )}
+                    </span>
+                  </div>
                 </div>
               </div>
             </Link>
           ))}
         </div>
       </div>
-      <div className="text-center">
+      <div className="text-center my-5 md:my-10">
         <Link to="/products">
           <Button className="bg-black text-white hover:bg-white hover:text-black hover:border uppercase">
             View More
