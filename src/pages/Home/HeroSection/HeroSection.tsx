@@ -19,7 +19,7 @@ const HeroSection = () => {
             className="w-full"
             plugins={[
               Autoplay({
-                delay: 400000,
+                delay: 4000,
               }),
             ]}
           >

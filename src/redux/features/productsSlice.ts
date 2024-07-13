@@ -4,6 +4,7 @@ interface ProductsState {
   products: any[];
   searchTerm: string;
   category: string;
+  priceRange: [number, number];
   sortBy: string;
   sortOrder: string;
 }
@@ -12,6 +13,7 @@ const initialState: ProductsState = {
   products: [],
   searchTerm: '',
   category: '',
+  priceRange: [0, 250],
   sortBy: '',
   sortOrder: '',
 };
@@ -29,6 +31,9 @@ const productsSlice = createSlice({
     setCategory: (state, action: PayloadAction<string>) => {
       state.category = action.payload;
     },
+    setPriceRange: (state, action: PayloadAction<[number, number]>) => {
+      state.priceRange = action.payload;
+    },
     setSortBy: (state, action: PayloadAction<{ sortBy: string; sortOrder: string }>) => {
       state.sortBy = action.payload.sortBy;
       state.sortOrder = action.payload.sortOrder;
@@ -36,13 +41,14 @@ const productsSlice = createSlice({
     clearFilters: (state) => {
       state.searchTerm = '';
       state.category = '';
+      state.priceRange = [0, 1000];
       state.sortBy = '';
       state.sortOrder = '';
     },
   },
 });
 
-export const { setProducts, setSearchTerm, setCategory, setSortBy, clearFilters } =
+export const { setProducts, setSearchTerm, setCategory, setPriceRange, setSortBy, clearFilters } =
   productsSlice.actions;
 
 export default productsSlice.reducer;
