@@ -2,6 +2,7 @@ import { useAppSelector } from '@/redux/hooks';
 import { useEffect } from 'react';
 
 const useBeforeUnload = (message: string) => {
+  // Show Warning before refresh the page
   const cart = useAppSelector((state) => state.cart.items);
 
   useEffect(() => {

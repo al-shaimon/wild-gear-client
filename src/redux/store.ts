@@ -4,6 +4,7 @@ import productsReducer from '@/redux/features/productsSlice';
 import cartReducer from '@/redux/features/cartSlice';
 
 export const store = configureStore({
+  // Add all reducers here
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     products: productsReducer,

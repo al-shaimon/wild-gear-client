@@ -29,12 +29,12 @@ const Checkout = () => {
 
   const onSubmit = async (data: CheckoutForm) => {
     // Show processing toast
-    toast.loading('Processing your order...');
-
+    const loadingToastId = toast.loading('Processing your order...');
+  
     if (paymentMethod === 'cashOnDelivery') {
       // Handle Cash on Delivery
       console.log('Order placed with Cash on Delivery:', data);
-
+  
       // Update product quantities
       for (const item of cart) {
         await updateProduct({
@@ -45,20 +45,23 @@ const Checkout = () => {
           },
         });
       }
-
+  
       // Refetch products data after updating quantities
       try {
         await refetchProducts();
       } catch (error) {
         console.error('Error refetching products:', error);
       }
-
+  
       // Clear the cart
       dispatch(clearCart());
-
+  
+      // Dismiss the loading toast
+      toast.dismiss(loadingToastId);
+  
       // Show success toast
       toast.success('Your order has been placed successfully!');
-
+  
       // Redirect to success page
       setOrderPlaced(true);
     }
