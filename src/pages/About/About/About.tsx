@@ -131,7 +131,7 @@ const About = () => {
                 <img
                   alt="team"
                   className="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                  src="/shaimon.jpg"
+                  src="https://i.ibb.co/M167Mrp/shaimon.jpg"
                 />
                 <div className="w-full">
                   <h2 className="title-font font-medium text-lg text-gray-900">Al Shaimon</h2>
@@ -147,7 +147,7 @@ const About = () => {
                 <img
                   alt="team"
                   className="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                  src="/mahim.jpg"
+                  src="https://i.ibb.co/C2g5V9z/mahim.jpg"
                 />
                 <div className="w-full">
                   <h2 className="title-font font-medium text-lg text-gray-900">Mahim Arif</h2>
@@ -163,7 +163,7 @@ const About = () => {
                 <img
                   alt="team"
                   className="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                  src="/hamdan.jpg"
+                  src="https://i.ibb.co/JzS0JJL/hamdan.jpg"
                 />
                 <div className="w-full">
                   <h2 className="title-font font-medium text-lg text-gray-900">Hamdanul Haque</h2>
@@ -179,7 +179,7 @@ const About = () => {
                 <img
                   alt="team"
                   className="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                  src="/asir.jpg"
+                  src="https://i.ibb.co/KsdBqjW/asir.jpg"
                 />
                 <div className="w-full">
                   <h2 className="title-font font-medium text-lg text-gray-900">Asir Ishmam</h2>

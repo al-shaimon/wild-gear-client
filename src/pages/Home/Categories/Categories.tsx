@@ -16,17 +16,17 @@ interface ICategoryImages {
 }
 
 const categoryImages: ICategoryImages = {
-  Jacket: '/jacket.jpg',
-  Tent: '/tent.jpg',
-  'Camping Stove': '/2.jpg',
-  Backpack: '/backpack.jpg',
-  'Portable Chair': '/portable-chair.webp',
-  Flashlights: '/flashlights.webp',
-  'Camping Cookware': '/camping-cookware.webp',
-  'First Aid Kit': '/first-aid-kit.jpg',
-  'Water Bottle': '/water-bottle.jpg',
-  'Sleeping Bag': '/sleeping-bag.jpg',
-  'Hiking Boots': '/hiking-boots.jpg',
+  Jacket: 'https://i.ibb.co/wCLyYj1/jacket.jpg',
+  Tent: 'https://i.ibb.co/BV3gCnQ/tent.jpg',
+  'Camping Stove': 'https://i.ibb.co/Qnz1WNc/2.jpg',
+  Backpack: 'https://i.ibb.co/v4C4bwk/backpack.jpg',
+  'Portable Chair': 'https://i.ibb.co/j3V7T7q/portable-chair.webp',
+  Flashlights: 'https://i.ibb.co/ZgMLKtY/flashlights.webp',
+  'Camping Cookware': 'https://i.ibb.co/XxDqZdh/camping-cookware.webp',
+  'First Aid Kit': 'https://i.ibb.co/jzrG1h0/first-aid-kit.jpg',
+  'Water Bottle': 'https://i.ibb.co/tKJq9Xz/water-bottle.jpg',
+  'Sleeping Bag': 'https://i.ibb.co/4gJ4mNw/sleeping-bag.jpg',
+  'Hiking Boots': 'https://i.ibb.co/K97KZLg/hiking-boots.jpg',
 };
 
 const Categories = () => {
