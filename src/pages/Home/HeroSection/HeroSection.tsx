@@ -27,7 +27,7 @@ const HeroSection = () => {
               <CarouselItem>
                 <div className="relative overflow-hidden rounded-lg group">
                   <img
-                    src="/sale.jpg"
+                    src="https://i.ibb.co/1670pNP/sale.jpg"
                     alt="Product 1"
                     className="object-cover w-full h-[400px] md:h-[500px] lg:h-[80vh]"
                   />
@@ -50,7 +50,7 @@ const HeroSection = () => {
               <CarouselItem>
                 <div className="relative overflow-hidden rounded-lg group">
                   <img
-                    src="/1.jpg"
+                    src="https://i.ibb.co/7zHZmy3/1.jpg"
                     alt="Product 2"
                     className="object-cover w-full h-[400px] md:h-[500px] lg:h-[80vh]"
                   />
@@ -73,8 +73,8 @@ const HeroSection = () => {
               <CarouselItem>
                 <div className="relative overflow-hidden rounded-lg group">
                   <img
-                    src="/3.jpg"
-                    alt="Product 1"
+                    src="https://i.ibb.co/RBjcmmR/3.jpg"
+                    alt="Product 3"
                     className="object-cover w-full h-[400px] md:h-[500px] lg:h-[80vh]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
