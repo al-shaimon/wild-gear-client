@@ -19,7 +19,7 @@ const HeroSection = () => {
             className="w-full"
             plugins={[
               Autoplay({
-                delay: 4000,
+                delay: 5000,
               }),
             ]}
           >
@@ -27,9 +27,10 @@ const HeroSection = () => {
               <CarouselItem>
                 <div className="relative overflow-hidden rounded-lg group">
                   <img
-                    src="https://i.ibb.co/1670pNP/sale.jpg"
+                    src="/sale.webp"
                     alt="Product 1"
                     className="object-cover w-full h-[400px] md:h-[500px] lg:h-[80vh]"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white ">
@@ -50,9 +51,10 @@ const HeroSection = () => {
               <CarouselItem>
                 <div className="relative overflow-hidden rounded-lg group">
                   <img
-                    src="https://i.ibb.co/7zHZmy3/1.jpg"
+                    src="/1.webp"
                     alt="Product 2"
                     className="object-cover w-full h-[400px] md:h-[500px] lg:h-[80vh]"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white ">
@@ -73,9 +75,10 @@ const HeroSection = () => {
               <CarouselItem>
                 <div className="relative overflow-hidden rounded-lg group">
                   <img
-                    src="https://i.ibb.co/RBjcmmR/3.jpg"
+                    src="/3.webp"
                     alt="Product 3"
                     className="object-cover w-full h-[400px] md:h-[500px] lg:h-[80vh]"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white ">

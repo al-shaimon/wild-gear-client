@@ -25,7 +25,7 @@ const FeaturedProducts = () => {
       </div>
     );
   }
-  console.log(data.data);
+  // console.log(data.data);
 
   const featuredProducts = data?.data?.filter((product: any) => product.tags.includes('Featured'));
 

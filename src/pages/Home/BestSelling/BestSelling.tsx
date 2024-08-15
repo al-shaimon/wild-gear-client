@@ -26,7 +26,7 @@ const BestSelling = () => {
     );
   }
 
-  console.log(data.data);
+  // console.log(data.data);
 
   const bestSellingProducts = data.data.filter((product: any) =>
     product.tags.includes('Best Selling')

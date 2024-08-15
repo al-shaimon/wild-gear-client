@@ -55,7 +55,7 @@ const NavBar = () => {
             </SheetContent>
           </Sheet>
           <NavLink to="/" className="flex items-center gap-2">
-            <img className="w-44 md:w-56" src="/logo.png" alt="logo" />
+            <img className="w-44 md:w-56" src="/logo.webp" alt="logo" />
           </NavLink>
           <nav className="hidden space-x-4 md:flex">
             <NavLink

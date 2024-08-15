@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 const Adventure = () => {
-  const bg = '/bg.jpg';
+  const bg = '/bg.webp';
 
   return (
     <section
@@ -16,7 +16,7 @@ const Adventure = () => {
     >
       <div className="flex-1 md:flex p-4 md:p-0">
         <div className="pb-5 md:pr-12 md:mt-24 md:mb-24 md:w-[50%]">
-          <img className="" src="/5.jpeg" alt="Adventure" />
+          <img className="" src="/5.webp" alt="Adventure" />
         </div>
         <div className="md:mt-24 md:mr-40 md:pl-12 md:w-[50%]">
           <h3 className="text-white text-center md:text-left text-3xl md:text-5xl font-bold">

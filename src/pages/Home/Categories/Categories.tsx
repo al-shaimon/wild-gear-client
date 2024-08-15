@@ -16,17 +16,17 @@ interface ICategoryImages {
 }
 
 const categoryImages: ICategoryImages = {
-  Jacket: 'https://i.ibb.co/wCLyYj1/jacket.jpg',
-  Tent: 'https://i.ibb.co/BV3gCnQ/tent.jpg',
-  'Camping Stove': 'https://i.ibb.co/Qnz1WNc/2.jpg',
-  Backpack: 'https://i.ibb.co/v4C4bwk/backpack.jpg',
-  'Portable Chair': 'https://i.ibb.co/j3V7T7q/portable-chair.webp',
-  Flashlights: 'https://i.ibb.co/ZgMLKtY/flashlights.webp',
-  'Camping Cookware': 'https://i.ibb.co/XxDqZdh/camping-cookware.webp',
-  'First Aid Kit': 'https://i.ibb.co/jzrG1h0/first-aid-kit.jpg',
-  'Water Bottle': 'https://i.ibb.co/tKJq9Xz/water-bottle.jpg',
-  'Sleeping Bag': 'https://i.ibb.co/4gJ4mNw/sleeping-bag.jpg',
-  'Hiking Boots': 'https://i.ibb.co/K97KZLg/hiking-boots.jpg',
+  Jacket: '/jacket.webp',
+  Tent: '/tent.webp',
+  'Camping Stove': '/2.webp',
+  Backpack: '/backpack.webp',
+  'Portable Chair': '/portable-chair.webp',
+  Flashlights: '/flashlights.webp',
+  'Camping Cookware': '/camping-cookware.webp',
+  'First Aid Kit': '/first-aid-kit.webp',
+  'Water Bottle': '/water-bottle.webp',
+  'Sleeping Bag': '/sleeping-bag.webp',
+  'Hiking Boots': '/hiking-boots.webp',
 };
 
 const Categories = () => {
@@ -67,6 +67,7 @@ const Categories = () => {
                       src={categoryImages[category]}
                       alt={category}
                       className="absolute inset-0 w-full h-full object-cover filter brightness-75"
+                      loading="lazy"
                     />
                     <CardHeader className="relative z-10">
                       <CardTitle className="text-white text-xl font-bold">{category}</CardTitle>

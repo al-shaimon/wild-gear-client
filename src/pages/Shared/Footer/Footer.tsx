@@ -6,7 +6,7 @@ const Footer = () => {
       <footer className="min-h-20">
         <div className="flex items-center gap-2 md:gap-5 sm:flex-row flex-col">
           <NavLink to="/">
-            <img className="w-56" src="/logo.png" alt="logo" />
+            <img className="w-56" src="/logo.webp" alt="logo" />
           </NavLink>
           <p className="text-sm sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
             © {new Date().getFullYear()} WildGears —

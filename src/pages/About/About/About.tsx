@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 const About = () => {
+  const [mapLoaded, setMapLoaded] = useState(false);
+
   return (
     <section className="mx-4 py-12">
       <div className="">
@@ -123,87 +127,27 @@ const About = () => {
           </p>
         </div>
 
-        <div className="bg-white shadow-md rounded-lg p-6">
-          <h3 className="text-2xl font-semibold mb-4">Meet Our Team</h3>
-          <div className="flex flex-wrap -m-4">
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <div className="h-full flex flex-col items-center text-center">
-                <img
-                  alt="team"
-                  className="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                  src="https://i.ibb.co/M167Mrp/shaimon.jpg"
-                />
-                <div className="w-full">
-                  <h2 className="title-font font-medium text-lg text-gray-900">Al Shaimon</h2>
-                  <h3 className="text-gray-500 mb-3">CEO</h3>
-                  <p className="mb-4">
-                    Shaimon leads our team with over 20 years of experience in the retail industry.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <div className="h-full flex flex-col items-center text-center">
-                <img
-                  alt="team"
-                  className="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                  src="https://i.ibb.co/C2g5V9z/mahim.jpg"
-                />
-                <div className="w-full">
-                  <h2 className="title-font font-medium text-lg text-gray-900">Mahim Arif</h2>
-                  <h3 className="text-gray-500 mb-3">Marketing Manager</h3>
-                  <p className="mb-4">
-                    Mahim is our marketing guru, bringing innovative strategies to grow our brand.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <div className="h-full flex flex-col items-center text-center">
-                <img
-                  alt="team"
-                  className="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                  src="https://i.ibb.co/JzS0JJL/hamdan.jpg"
-                />
-                <div className="w-full">
-                  <h2 className="title-font font-medium text-lg text-gray-900">Hamdanul Haque</h2>
-                  <h3 className="text-gray-500 mb-3">Customer Service Lead</h3>
-                  <p className="mb-4">
-                    Hamdan ensures that all our customers have a fantastic shopping experience.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <div className="h-full flex flex-col items-center text-center">
-                <img
-                  alt="team"
-                  className="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                  src="https://i.ibb.co/KsdBqjW/asir.jpg"
-                />
-                <div className="w-full">
-                  <h2 className="title-font font-medium text-lg text-gray-900">Asir Ishmam</h2>
-                  <h3 className="text-gray-500 mb-3">Operations Manager</h3>
-                  <p className="mb-4">
-                    Asir oversees the day-to-day operations, ensuring everything runs smoothly.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div className="bg-white shadow-md rounded-lg p-6 my-8">
           <h3 className="text-2xl font-semibold mb-4">Find Us Here</h3>
           <div className="h-[50vh]">
-            <iframe
-              title="Google Maps"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345094073!2d144.95373631561618!3d-37.817209742627614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5774d6a5f4dcd1!2sVictoria%20Harbour%20Promenade%2C%20Docklands%20VIC%203008%2C%20Australia!5e0!3m2!1sen!2sus!4v1625781234567!5m2!1sen!2sus"
-              width="600"
-              height="600"
-              loading="lazy"
-              className="w-full h-full border-0"
-            ></iframe>
+            {mapLoaded ? (
+              <iframe
+                title="Google Maps"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345094073!2d144.95373631561618!3d-37.817209742627614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5774d6a5f4dcd1!2sVictoria%20Harbour%20Promenade%2C%20Docklands%20VIC%203008%2C%20Australia!5e0!3m2!1sen!2sus!4v1625781234567!5m2!1sen!2sus"
+                width="600"
+                height="600"
+                loading="lazy"
+                className="w-full h-full border-0"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <div
+                className="w-full h-full bg-gray-200 flex items-center justify-center cursor-pointer"
+                onClick={() => setMapLoaded(true)}
+              >
+                <span>Click to view map</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
