@@ -184,7 +184,7 @@ const Products = () => {
                 <div className="relative block min-h-[500px] rounded overflow-hidden shadow-lg transition-transform transform hover:scale-105">
                   <img
                     alt={product.name}
-                    className="object-cover object-center w-full h-full"
+                    className="object-cover object-center w-full h-96"
                     src={product.images[0]}
                   />
                   <div className="mt-4 p-4">
